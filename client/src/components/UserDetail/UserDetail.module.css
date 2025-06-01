@@ -1,0 +1,52 @@
+.userDetail {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .userDetail {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+.sectionTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #eee;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 8px 16px;
+}
+
+.label {
+  font-weight: 500;
+  color: #666;
+}
+
+.value {
+  color: #333;
+}
+
+.mapLink {
+  display: inline-block;
+  margin-top: 10px;
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.mapLink:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
