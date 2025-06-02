@@ -1,0 +1,14 @@
+node_modules
+.git
+.gitignore
+README.md
+.env
+.nyc_output
+coverage
+.coverage
+**/*.test.ts
+**/*.test.tsx
+**/*.spec.ts
+**/*.spec.tsx
+.vscode
+.idea 

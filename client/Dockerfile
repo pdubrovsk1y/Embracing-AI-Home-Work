@@ -8,11 +8,11 @@ COPY package*.json ./
 # Install dependencies
 RUN npm install
 
-# Copy all files
+# Copy all files except test files
 COPY . .
 
-# Build the app
-RUN npm run build
+# Build the app (skip type checking for tests)
+RUN npm run build -- --mode production
 
 # Production stage
 FROM nginx:alpine
