@@ -1,0 +1,67 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Backend Structure Guide
+
+The NestJS backend is located in [server/src/](mdc:server/src) and follows a modular architecture.
+
+## Core Files
+- **Entry Point**: [server/src/main.ts](mdc:server/src/main.ts) - Application bootstrap
+- **Root Module**: [server/src/app.module.ts](mdc:server/src/app.module.ts) - Main application module
+- **Configuration**: [server/src/config/](mdc:server/src/config) - Environment and database config
+
+## Module Structure
+
+### Authentication Module
+- **Location**: [server/src/auth/](mdc:server/src/auth)s
+- **Purpose**: JWT-based authentication, login/register endpoints
+- **Key Files**: Auth controller, service, guards, and strategies
+
+### Users Module  
+- **Location**: [server/src/users/](mdc:server/src/users)
+- **Purpose**: CRUD operations for user management
+- **Features**: Full REST API with protected endpoints
+
+### Database Module
+- **Location**: [server/src/database/](mdc:server/src/database)
+- **Purpose**: TypeORM configuration and database connection
+- **Database**: PostgreSQL with TypeORM entities
+
+### Seed Module
+- **Location**: [server/src/seed/](mdc:server/src/seed)
+- **Purpose**: Initial data seeding for development/testing
+
+## Key Concepts
+
+### Authentication Flow
+1. User registers/logs in via [server/src/auth/](mdc:server/src/auth)
+2. JWT token issued for protected routes
+3. Guards protect sensitive endpoints
+
+### Data Model
+Follows JSONPlaceholder structure:
+- User entity with nested address and company objects
+- Full CRUD operations with proper validation
+
+### API Endpoints
+- `GET /users` - Public user listing
+- `POST /users` - Protected user creation
+- `PATCH /users/:id` - Protected user updates  
+- `DELETE /users/:id` - Protected user deletion
+- `POST /auth/login` - Authentication
+- `POST /auth/register` - User registration
+
+## Development Commands
+- **Start Dev**: `npm run start:dev` (watch mode)
+- **Build**: `npm run build`
+- **Test**: `npm test` (unit tests)
+- **E2E Tests**: `npm run test:e2e`
+- **Lint**: `npm run lint`
+
+## Database
+- **Type**: PostgreSQL
+- **ORM**: TypeORM with decorators
+- **Migrations**: Automatic schema synchronization in development
+- **Seeding**: Sample data via seed module

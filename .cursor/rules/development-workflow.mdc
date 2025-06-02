@@ -1,0 +1,98 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Development Workflow Guide
+
+This guide covers common development tasks and workflows for the JSONPlaceholder Clone project.
+
+## Getting Started
+
+### First Time Setup
+1. **Clone and Install**: 
+   ```bash
+   git clone <repo>
+   cd server && npm install
+   cd ../client && npm install
+   ```
+
+2. **Environment Setup**: Create [server/.env](mdc:server/.env) with database credentials
+
+3. **Database**: Start PostgreSQL via `docker-compose up postgres`
+
+### Daily Development
+
+#### Frontend Development
+- **Start**: `cd client && npm run dev` (http://localhost:5173)
+- **Test**: `npm test` or `npm run test:watch`
+- **Lint**: `npm run lint`
+- **Build**: `npm run build`
+
+#### Backend Development  
+- **Start**: `cd server && npm run start:dev` (http://localhost:3000)
+- **Test**: `npm test` (unit) or `npm run test:e2e` (integration)
+- **Lint**: `npm run lint`
+- **Build**: `npm run build`
+
+## Common Tasks
+
+### Adding New Components (Frontend)
+1. Create directory in [client/src/components/](mdc:client/src/components/)
+2. Add component file, styles (.module.css), and tests
+3. Export from index.ts file
+4. Import and use in parent components
+
+### Adding New API Endpoints (Backend)
+1. Add methods to controller in appropriate module
+2. Implement business logic in service
+3. Add DTOs for request/response validation
+4. Write tests for new functionality
+5. Update API documentation
+
+### Database Changes
+1. Modify entity files in respective modules
+2. TypeORM will auto-sync in development
+3. For production, create proper migrations
+
+## Debugging Tips
+
+### Frontend Issues
+- **React DevTools**: Install browser extension for component inspection
+- **Network Tab**: Check API calls and responses
+- **Console Errors**: Look for TypeScript/React errors
+- **Hot Reload**: Vite provides fast refresh on file changes
+
+### Backend Issues
+- **Logs**: NestJS provides detailed error logs in console
+- **Database**: Check PostgreSQL logs via `docker-compose logs postgres`
+- **API Testing**: Use Postman/Insomnia or curl for endpoint testing
+- **TypeORM Logs**: Enable query logging in database config
+
+### Common Problems
+- **CORS Issues**: Check backend CORS configuration in [server/src/main.ts](mdc:server/src/main.ts)
+- **Auth Problems**: Verify JWT token format and expiration
+- **Database Connection**: Ensure PostgreSQL is running and credentials are correct
+- **Port Conflicts**: Frontend (5173) and backend (3000) default ports
+
+## Testing Strategy
+
+### Frontend Tests
+- **Unit Tests**: Component logic and utilities
+- **Integration Tests**: Component interactions
+- **E2E Tests**: Full user workflows (if implemented)
+
+### Backend Tests
+- **Unit Tests**: Service and controller logic
+- **Integration Tests**: Database operations
+- **E2E Tests**: Full API workflows
+
+## Deployment
+
+### Docker Deployment
+- **Full Stack**: `docker-compose up` (includes database)
+- **Production**: Use [docker-compose.yml](mdc:docker-compose.yml) as base
+
+### Manual Deployment
+- **Frontend**: Build with `npm run build`, serve static files
+- **Backend**: Build with `npm run build`, run with `npm run start:prod`

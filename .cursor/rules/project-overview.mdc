@@ -1,0 +1,30 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Project Overview - JSONPlaceholder Clone
+
+This is a full-stack application that replicates JSONPlaceholder functionality with authentication and CRUD operations.
+
+## Architecture
+- **Frontend**: React 19 + TypeScript + Vite in [client/](mdc:client)
+- **Backend**: NestJS + TypeScript + PostgreSQL in [server/](mdc:server)
+- **Containerization**: Docker Compose setup in [docker-compose.yml](mdc:docker-compose.yml)
+
+## Key Entry Points
+- **Frontend**: [client/src/main.tsx](mdc:client/src/main.tsx) - React app entry point
+- **Backend**: [server/src/main.ts](mdc:server/src/main.ts) - NestJS app entry point
+- **Main App Component**: [client/src/App.tsx](mdc:client/src/App.tsx) - Root React component
+- **Backend Module**: [server/src/app.module.ts](mdc:server/src/app.module.ts) - Main NestJS module
+
+## Quick Start Commands
+- Frontend: `cd client && npm run dev` (runs on http://localhost:5173)
+- Backend: `cd server && npm run start:dev` (runs on http://localhost:3000)
+- Full Stack: `docker-compose up` (containerized deployment)
+
+## Tech Stack Summary
+- **Frontend**: React Query, React Router, Axios, Leaflet Maps, CSS Modules
+- **Backend**: NestJS, TypeORM, PostgreSQL, JWT Auth, Passport, bcrypt
+- **Testing**: Vitest (frontend), Jest (backend)
+- **Development**: ESLint, Prettier, TypeScript

@@ -1,0 +1,160 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Styling Conventions Guide
+
+This project uses CSS Modules for component styling with a consistent approach across all components.
+
+## CSS Modules Structure
+
+### File Naming
+- **Component Styles**: `ComponentName.module.css`
+- **Global Styles**: [client/src/index.css](mdc:client/src/index.css) for base styles
+- **App Styles**: [client/src/App.css](mdc:client/src/App.css) for layout
+
+### Import Pattern
+```typescript
+import styles from './ComponentName.module.css';
+
+// Usage
+<div className={styles.container}>
+  <button className={`${styles.button} ${styles.primary}`}>
+```
+
+## Class Naming Conventions
+
+### Container Classes
+- `.container` - Main component wrapper
+- `.header` - Component header section
+- `.content` - Main content area
+- `.footer` - Component footer section
+
+### Interactive Elements
+- `.button` - Base button styles
+- `.primaryButton` - Primary action button
+- `.secondaryButton` - Secondary action button
+- `.deleteButton` - Destructive action button
+- `.actionButton` - Generic action button
+
+### Layout Classes
+- `.grid` - Grid container
+- `.flexContainer` - Flex container
+- `.row` - Horizontal layout
+- `.column` - Vertical layout
+
+### State Classes
+- `.loading` - Loading state
+- `.error` - Error state
+- `.success` - Success state
+- `.disabled` - Disabled state
+- `.active` - Active state
+
+## Component-Specific Examples
+
+### UserList Component
+Reference: [client/src/components/UserList/UserList.module.css](mdc:client/src/components/UserList/UserList.module.css)
+
+Key classes:
+- `.tableContainer` - Table wrapper with overflow
+- `.table` - Main table styles
+- `.tableHeader` - Header row styling
+- `.tableRow` - Data row styling
+- `.actions` - Action buttons container
+
+### Modal Component
+- `.overlay` - Modal backdrop
+- `.modal` - Modal container
+- `.modalHeader` - Modal header
+- `.modalContent` - Modal body
+- `.modalFooter` - Modal footer
+
+## Responsive Design
+
+### Breakpoints
+```css
+/* Mobile First Approach */
+@media (max-width: 768px) {
+  /* Mobile styles */
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Tablet styles */
+}
+
+@media (min-width: 1025px) {
+  /* Desktop styles */
+}
+```
+
+### Common Responsive Patterns
+- Reduce padding/margins on mobile
+- Stack elements vertically on small screens
+- Adjust font sizes for readability
+- Hide non-essential elements on mobile
+
+## Color Scheme
+
+### Primary Colors
+- Primary: `#007bff` (blue)
+- Secondary: `#6c757d` (gray)
+- Success: `#28a745` (green)
+- Danger: `#dc3545` (red)
+- Warning: `#ffc107` (yellow)
+
+### Neutral Colors
+- Background: `#fff` (white)
+- Text: `#333` (dark gray)
+- Border: `#dee2e6` (light gray)
+- Hover: `#f8f9fa` (very light gray)
+
+## Typography
+
+### Font Sizes
+- Heading: `2rem`
+- Subheading: `1.5rem`
+- Body: `1rem`
+- Small: `0.875rem`
+- Caption: `0.75rem`
+
+### Font Weights
+- Normal: `400`
+- Medium: `500`
+- Semibold: `600`
+- Bold: `700`
+
+## Animation & Transitions
+
+### Standard Transitions
+```css
+transition: all 0.2s ease;
+transition: background-color 0.2s;
+transition: color 0.2s;
+```
+
+### Hover Effects
+- Subtle background color changes
+- Color transitions for text/icons
+- Scale transforms for buttons (sparingly)
+
+## Best Practices
+
+### CSS Organization
+1. Layout properties first (display, position, etc.)
+2. Box model properties (width, height, margin, padding)
+3. Typography properties (font, color, text-align)
+4. Visual properties (background, border, shadow)
+5. Animation properties (transition, transform)
+
+### Performance
+- Use CSS Modules for automatic scoping
+- Avoid deep nesting (max 3 levels)
+- Use efficient selectors
+- Minimize use of `!important`
+
+### Accessibility
+- Ensure sufficient color contrast (4.5:1 minimum)
+- Use focus indicators for interactive elements
+- Support reduced motion preferences
+- Provide hover and focus states

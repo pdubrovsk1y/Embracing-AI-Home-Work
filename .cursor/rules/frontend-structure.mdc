@@ -1,0 +1,45 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Frontend Structure Guide
+
+The React frontend is located in [client/src/](mdc:client/src) and follows a component-based architecture.
+
+## Core Files
+- **Entry Point**: [client/src/main.tsx](mdc:client/src/main.tsx) - React DOM rendering
+- **Root Component**: [client/src/App.tsx](mdc:client/src/App.tsx) - Main app with routing and providers
+- **Global Styles**: [client/src/index.css](mdc:client/src/index.css) and [client/src/App.css](mdc:client/src/App.css)
+
+## Component Structure
+All components are in [client/src/components/](mdc:client/src/components) with their own directories:
+
+### Main Components
+- **UserList**: [client/src/components/UserList/](mdc:client/src/components/UserList) - Main table displaying users
+  - [UserList.tsx](mdc:client/src/components/UserList/UserList.tsx) - Component logic
+  - [UserList.module.css](mdc:client/src/components/UserList/UserList.module.css) - Styles
+  - [UserList.test.tsx](mdc:client/src/components/UserList/UserList.test.tsx) - Tests
+
+- **Auth**: [client/src/components/Auth/](mdc:client/src/components/Auth) - Authentication components
+- **UserDetail**: [client/src/components/UserDetail/](mdc:client/src/components/UserDetail) - User detail modal
+- **Modal**: [client/src/components/Modal/](mdc:client/src/components/Modal) - Reusable modal component
+- **Navbar**: [client/src/components/Navbar/](mdc:client/src/components/Navbar) - Navigation bar
+
+## State Management & Data Fetching
+- **React Query**: Used for server state management and caching
+- **Custom Hooks**: Located in [client/src/hooks/](mdc:client/src/hooks)
+- **API Layer**: HTTP client setup in [client/src/api/](mdc:client/src/api)
+
+## Styling Approach
+- **CSS Modules**: Each component has its own `.module.css` file
+- **Global Styles**: Base styles in [client/src/index.css](mdc:client/src/index.css)
+- **Responsive Design**: Mobile-first approach with media queries
+
+## Type Definitions
+TypeScript interfaces are in [client/src/types/](mdc:client/src/types) for type safety.
+
+## Testing
+- **Framework**: Vitest with React Testing Library
+- **Test Files**: Co-located with components (`.test.tsx` files)
+- **Commands**: `npm test` or `npm run test:watch`
