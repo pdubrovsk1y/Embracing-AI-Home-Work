@@ -1,52 +1,90 @@
-.userDetail {
-  display: grid;
-  grid-template-columns: 1fr;
+.modalContent {
+  display: flex;
+  flex-direction: column;
   gap: 20px;
 }
 
-@media (min-width: 768px) {
-  .userDetail {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
 .section {
-  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .sectionTitle {
-  font-size: 1.1rem;
+  font-size: 0.875rem;
   font-weight: 600;
-  color: #333;
-  margin-bottom: 10px;
-  padding-bottom: 5px;
-  border-bottom: 1px solid #eee;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+.sectionContent {
+  color: #1a1a1a;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.emailText {
+  color: #4285f4;
+  font-size: 0.95rem;
+  margin: 0;
+  font-weight: 500;
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #1a1a1a;
+  font-size: 0.9rem;
+}
+
+.contactLabel {
+  font-weight: 500;
+  color: #666;
+  min-width: 80px;
+}
+
+.link {
+  color: #4285f4;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.divider {
+  height: 1px;
+  background-color: #e8e8e8;
+  margin: 16px 0;
+}
+
+.userDetail {
+  display: none;
 }
 
 .infoGrid {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 8px 16px;
+  display: none;
 }
 
 .label {
-  font-weight: 500;
-  color: #666;
+  display: none;
 }
 
 .value {
-  color: #333;
+  display: none;
 }
 
 .mapLink {
-  display: inline-block;
-  margin-top: 10px;
-  color: #007bff;
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-.mapLink:hover {
-  color: #0056b3;
-  text-decoration: underline;
+  display: none;
 }

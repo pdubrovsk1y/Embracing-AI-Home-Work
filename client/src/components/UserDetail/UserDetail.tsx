@@ -11,86 +11,74 @@ export const UserDetail = ({ user }: UserDetailProps) => {
   };
 
   return (
-    <div className={styles.userDetail}>
-      <div>
-        <div className={styles.section}>
-          <h3 className={styles.sectionTitle}>Personal Information</h3>
-          <div className={styles.infoGrid}>
-            <div className={styles.label}>Full Name</div>
-            <div className={styles.value}>{user.name}</div>
+    <div className={styles.modalContent}>
+      {/* Email Section */}
+      <div className={styles.section}>
+        <p className={styles.emailText}>{user.email}</p>
+      </div>
 
-            <div className={styles.label}>Username</div>
-            <div className={styles.value}>{user.username}</div>
-
-            <div className={styles.label}>Email</div>
-            <div className={styles.value}>
-              <a href={`mailto:${user.email}`}>{user.email}</a>
-            </div>
-
-            <div className={styles.label}>Phone</div>
-            <div className={styles.value}>{user.phone}</div>
-
-            <div className={styles.label}>Website</div>
-            <div className={styles.value}>
-              <a
-                href={`http://${user.website}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {user.website}
-              </a>
-            </div>
+      {/* Address Section */}
+      <div className={styles.section}>
+        <h3 className={styles.sectionTitle}>Address</h3>
+        <div className={styles.sectionContent}>
+          <div>
+            {user.address.street}, {user.address.suite}
+          </div>
+          <div>
+            {user.address.city}, {user.address.zipcode}
           </div>
         </div>
+        <a
+          href={getGoogleMapsUrl(user.address.geo.lat, user.address.geo.lng)}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.link}
+        >
+          📍 View on map
+        </a>
+      </div>
 
-        <div className={styles.section}>
-          <h3 className={styles.sectionTitle}>Company</h3>
-          <div className={styles.infoGrid}>
-            <div className={styles.label}>Name</div>
-            <div className={styles.value}>{user.company.name}</div>
+      <div className={styles.divider}></div>
 
-            <div className={styles.label}>Catchphrase</div>
-            <div className={styles.value}>{user.company.catchPhrase}</div>
-
-            <div className={styles.label}>Business</div>
-            <div className={styles.value}>{user.company.bs}</div>
+      {/* Contact Section */}
+      <div className={styles.section}>
+        <h3 className={styles.sectionTitle}>Contact</h3>
+        <div className={styles.contactInfo}>
+          <div className={styles.contactItem}>
+            <span className={styles.contactLabel}>Phone:</span>
+            <span>{user.phone}</span>
+          </div>
+          <div className={styles.contactItem}>
+            <span className={styles.contactLabel}>Website:</span>
+            <a
+              href={`http://${user.website}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.link}
+            >
+              {user.website}
+            </a>
           </div>
         </div>
       </div>
 
-      <div>
-        <div className={styles.section}>
-          <h3 className={styles.sectionTitle}>Address</h3>
-          <div className={styles.infoGrid}>
-            <div className={styles.label}>Street</div>
-            <div className={styles.value}>{user.address.street}</div>
+      <div className={styles.divider}></div>
 
-            <div className={styles.label}>Suite</div>
-            <div className={styles.value}>{user.address.suite}</div>
-
-            <div className={styles.label}>City</div>
-            <div className={styles.value}>{user.address.city}</div>
-
-            <div className={styles.label}>Zipcode</div>
-            <div className={styles.value}>{user.address.zipcode}</div>
-
-            <div className={styles.label}>Geo Coordinates</div>
-            <div className={styles.value}>
-              Lat: {user.address.geo.lat}, Lng: {user.address.geo.lng}
-              <div>
-                <a
-                  href={getGoogleMapsUrl(
-                    user.address.geo.lat,
-                    user.address.geo.lng
-                  )}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.mapLink}
-                >
-                  View on Google Maps
-                </a>
-              </div>
-            </div>
+      {/* Company Section */}
+      <div className={styles.section}>
+        <h3 className={styles.sectionTitle}>Company</h3>
+        <div className={styles.contactInfo}>
+          <div className={styles.contactItem}>
+            <span className={styles.contactLabel}>Name:</span>
+            <span>{user.company.name}</span>
+          </div>
+          <div className={styles.contactItem}>
+            <span className={styles.contactLabel}>Catchphrase:</span>
+            <span>{user.company.catchPhrase}</span>
+          </div>
+          <div className={styles.contactItem}>
+            <span className={styles.contactLabel}>Business:</span>
+            <span>{user.company.bs}</span>
           </div>
         </div>
       </div>

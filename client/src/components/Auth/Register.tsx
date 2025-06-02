@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import type { FormEvent } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/auth/AuthContext";
 import styles from "./Login.module.css";
 
@@ -12,7 +13,15 @@ export const Register = ({ onSwitchToLogin }: RegisterProps) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState<string | null>(null);
-  const { register, isLoading, error } = useAuth();
+  const { register, isLoading, error, isAuthenticated } = useAuth();
+  const navigate = useNavigate();
+
+  // Redirect to UserList if already authenticated
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/");
+    }
+  }, [isAuthenticated, navigate]);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();

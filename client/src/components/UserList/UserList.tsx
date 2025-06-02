@@ -97,7 +97,7 @@ export const UserList = () => {
         <Modal
           isOpen={isModalOpen}
           onClose={handleCloseModal}
-          title={`User Details: ${selectedUser.name}`}
+          title={selectedUser.name}
         >
           <UserDetail user={selectedUser} />
         </Modal>
